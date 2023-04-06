@@ -21,19 +21,19 @@ const readAndAppend = (content, file) => {
     }
   });
 };
-const readAndDelete = ( file, id) => {
-  fs.readFile(file, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-    } else {
-      const parsedData = JSON.parse(data);
-      parsedData.filter(function
-        (id) {
+// const readAndDelete = ( file, id) => {
+//   fs.readFile(file, 'utf8', (err, data) => {
+//     if (err) {
+//       console.error(err);
+//     } else {
+//       const parsedData = JSON.parse(data);
+//       parsedData.filter(function
+//         (id) {
 
-        }
-      writeToFile(file, parsedData);
-    }
-  });
-}
+//         })
+//       writeToFile(file, parsedData);
+//     }
+//   });
+// }
 
 module.exports = { readFromFile, writeToFile, readAndAppend };

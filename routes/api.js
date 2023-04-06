@@ -6,7 +6,7 @@ api.get('/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 })
 api.post('/notes', (req, res) => {
-    console.info(`${req.method} request received to add a tip`);
+    console.info(`${req.method} request received to add a note`);
 
     const { title, text } = req.body;
 
@@ -14,7 +14,7 @@ api.post('/notes', (req, res) => {
         const newNote = {
             title,
             text,
-            note_id: uuid(),
+            // note_id: uuid(),
         };
 
         readAndAppend(newNote, './db/db.json');
@@ -24,7 +24,7 @@ api.post('/notes', (req, res) => {
     }
 });
 
-api.delete('/notes/:id', () => {
+// api.delete('/notes/:id', () => {
 
-})
+// })
 module.exports = api;
