@@ -1,5 +1,6 @@
 const api = require('express').Router();
 const { readFromFile, readAndAppend } = require('../utils/fsUtils')
+const uuid = require('../utils/uuid')
 
 
 api.get('/notes', (req, res) => {
@@ -8,13 +9,13 @@ api.get('/notes', (req, res) => {
 api.post('/notes', (req, res) => {
     console.info(`${req.method} request received to add a note`);
 
-    const { title, text } = req.body;
+    const { title, text, note_id } = req.body;
 
     if (req.body) {
         const newNote = {
             title,
             text,
-            // note_id: uuid(),
+            note_id: uuid(),
         };
 
         readAndAppend(newNote, './db/db.json');
