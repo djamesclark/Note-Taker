@@ -9,13 +9,13 @@ api.get('/notes', (req, res) => {
 api.post('/notes', (req, res) => {
     console.info(`${req.method} request received to add a note`);
 
-    const { title, text, note_id } = req.body;
+    const { title, text, id } = req.body;
 
     if (req.body) {
         const newNote = {
             title,
             text,
-            note_id: uuid(),
+            id: uuid(),
         };
 
         readAndAppend(newNote, './db/db.json');
